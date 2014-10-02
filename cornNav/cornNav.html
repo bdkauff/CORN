@@ -7,7 +7,7 @@
 	<style>
 	body 
 		{
-	font-family: Monospace;
+	font-family: 'Corben', monospace;
 	font-weight: bold;
 	background-color: #ff00ff;
 	margin: 0px;
@@ -15,9 +15,8 @@
 		}
 	</style>
 
-	<link rel="icon" href=".../favicon.ico" type="image/x-icon">
-
-
+	<link rel="icon" href="../favicon.ico" type="image/x-icon">
+	<link href='http://fonts.googleapis.com/css?family=Corben:700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
@@ -39,17 +38,19 @@
 <link rel=stylesheet href="css/info.css"/> -->
 
 <script src="js/info.js"></script>
-
-
-<a href = "http://benkauffman.com" target=_blank id = "articleUrl">
-<div id="ThreeJS" style = "position:absolute; left:0px; top:0px; background-color#ff00ff;">
 	<center>
-		<img src = "./title/corn3dtext.gif">
+		<div style= "font-size: 200px">CORN</div>
 	</center>
+<a href ="http://benkauffman.com" target= "_blank" id = "articleUrl">
+<div id="ThreeJS" style = "position:absolute; left:0px; top:0px; background-color#ff00ff;">
 </div>
+</a>
+
 
 
 <script>
+
+
 // MAIN
 
 // standard global variables
@@ -83,7 +84,7 @@ function init()
 	// RENDERER
 	if ( Detector.webgl )
 		renderer = new THREE.WebGLRenderer( {antialias:true} );
-	else
+	else 
 		renderer = new THREE.CanvasRenderer(); 
 	renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 	container = document.getElementById( 'ThreeJS' );
@@ -94,11 +95,11 @@ function init()
 	// CONTROLS
 	controls = new THREE.OrbitControls( camera, renderer.domElement );
 	// STATS
-	stats = new Stats();
-	stats.domElement.style.position = 'absolute';
-	stats.domElement.style.bottom = '0px';
-	stats.domElement.style.zIndex = 100;
-	container.appendChild( stats.domElement );
+	// stats = new Stats();
+	// stats.domElement.style.position = 'absolute';
+	// stats.domElement.style.bottom = '0px';
+	// stats.domElement.style.zIndex = 100;
+	// container.appendChild( stats.domElement );
 	// LIGHT
 	var light = new THREE.DirectionalLight(0xFFFF00);
 	light.position.set(-200,200,100);
@@ -136,8 +137,7 @@ function changeLink() {
     var link = document.getElementById("articleUrl");
 
     window.open(
-      link.href,
-      '_blank'
+      link.href
     );
 
   
