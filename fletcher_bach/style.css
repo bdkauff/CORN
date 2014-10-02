@@ -1,0 +1,87 @@
+#headerElt {
+    /* font-family: 'Rochester', cursive; */
+    font-family: 'Lobster', monospace;
+    /*font-family: 'Playball', cursive;*/
+    /*font-family: 'Lobster Two', cursive;*/
+    font-size: 148;
+    text-align: center; 
+    color: #38403A;
+    opacity: 0.8; 
+    padding-top: 465;
+    /*padding-top: 280; */ /*On Drinking Responsibly */
+    padding-bottom: 10;
+    margin-bottom: 10;
+}
+
+.quoteBlock{
+    margin-left: 300;
+    font-style: bold;
+    font-size: 36;
+}
+
+.textBlock {
+	font-family: 'EB Garamond', serif;
+    font-size: 18;
+    text-align: left;
+    margin-left: 200;
+    margin-right: 200;
+	/*
+	background-color: #708B6F;
+    background-image: url('images/cornbeer.jpg');
+    */
+}
+
+.backgroundImage{
+    position: absolute;
+    z-index: -1;
+    margin-bottom: 0;
+	/*position: absolute;
+    left: 0px;
+    top: 0px;
+    
+    z-index: -1;
+    background-color: #708B6F;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    */
+}
+
+
+
+#end {
+    font-family: 'Lobster', serif;
+    font-style: bold;
+    text-align: center;
+    font-size: 84;
+    margin-top: -20;
+    padding-top: -20;
+}
+
+body {
+    background-color: #f1f1f1; 
+    font-family: 'EB Garamond', serif;
+    font-size: 18;
+    color: #38403A;
+}
+
+footer{
+    background-color: #f1f1f1; 
+    font-family: 'EB Garamond', serif;
+    font-size: 18;
+    margin-left: 50;
+}
+
+#beer {
+    font-size: 36;
+    font-style: bold;
+    line-height: 100%;
+}
+
+#emph { 
+    font-style: bold;
+    font-style: italic;
+}
+
+

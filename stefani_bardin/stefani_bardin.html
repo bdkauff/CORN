@@ -1,0 +1,107 @@
+
+<head>
+<title>Stefani Bardin</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Corben:700' rel='stylesheet' type='text/css'>
+
+<style>
+body{
+	background-color: #FFFFEB;
+	font-family: 'Corben', 'monospace';
+	font-size: 20px
+}
+
+#container{
+	width:100%;
+	height:60%;
+
+
+}
+
+.vidContainer{
+	width: calc(100%/3);
+	margin-top: 10%;
+	position: relative;
+	float: left;
+}
+
+.vid{
+	background-color: #FFFFEB;
+	padding-top:10px;
+	margin: 6px;
+	padding-bottom:150px;
+	width: 100%;
+	height: auto;
+}
+.caption{
+	background-color:#FFFFEB;
+	text-align: center;
+	width: 100%;
+	height:100%;
+}
+video{
+	width: 100%;
+	height:90%;
+}
+
+video:hover{
+	cursor:none;
+}
+
+::-webkit-media-controls {
+  display:none !important;
+}
+
+</style>
+</head>
+
+
+<div style="font-family:monospace; font-size:12px"> Commodity Cropism <br> by <a href = "http://www.stefanibardin.net/"> Stefani Bardin</a></div>
+<center>
+
+<div id = "container">
+	<div class = "vidContainer">
+			<div class = "vid1">
+				<div class = "caption">
+				SUGAR DADDY
+					<video controls autoplay loop muted>
+					<source src="videos/sugar_daddy.mov" type="video/mp4" />
+				
+				</div>
+			</div>
+		</div>
+	<div class = "vidContainer">
+		<div class = "caption">
+			<div class = "vid2">
+				SOYLENT GREEN
+				<video controls autoplay loop muted>
+				<source src="videos/soylent_green.mov" type="video/mp4" />
+				
+			</div>
+		</div>
+		</div>
+	<div class = "vidContainer">
+		<div class = "vid3">
+			<div class = "caption">
+			AMAZING GRAINS
+			<video controls autoplay loop muted>
+			<source src="videos/amazing_grains.mov" type="video/mp4" />
+			
+		</div>
+	</div>
+</div>
+
+		
+
+<script>
+$("video").hover(function(){
+  $(this).prop('muted', false);
+  $(this).css("background-color","yellow")
+  },function(){
+  $(this).prop('muted', true);
+  $(this).css("background-color","#FFFFEB")
+});
+
+
+</script>
+</body>
