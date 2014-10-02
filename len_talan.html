@@ -4,16 +4,11 @@
 <title>Len Talan</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Corben:700' rel='stylesheet' type='text/css'>
-
-<script> 
-$(function(){
-  $("#header").load("page_template.html #page_template"); 
-});
-</script>
 <script>
 
 	var gifs = {"Corned Tuna Catherine Wheel" : "https://s3.amazonaws.com/smog-corn/CornedTunaCatherineWheel.gif",
 				"CORNPONE" : "https://s3.amazonaws.com/smog-corn/CORNPONE.gif",
+				"American Cornucopia":"https://s3.amazonaws.com/smog-corn/American-Cornucopia-3.gif",
 				"Kentucky CORNhole" : "https://s3.amazonaws.com/smog-corn/Kentucky_CORNhole.gif",
 				"Corn On Cob":"https://s3.amazonaws.com/smog-corn/Corn_On_Cob.gif"
 				};
@@ -23,16 +18,15 @@ $(function(){
     	nextBg();
     });
     
-
     function nextBg()
     {
     	++ctr;
     	console.log(ctr);
-    	if( ctr <= 3 )
+    	if( ctr <= 4 )
     	{
     		$("body").css( { backgroundImage: "url(" + gifs[Object.keys(gifs)[ctr]] + ")", backgroundSize: "25%"});
-    		$("#len_titles").text(Object.keys(gifs)[ctr])
-    		if( ctr == 3)
+    		$("#len_titles").text(Object.keys(gifs)[ctr]).css( { "position": "relative", "top": "50%", "center":"25%" } )
+    		if( ctr == 4)
     			ctr = -1;
     	}
 
@@ -45,10 +39,10 @@ $(function(){
 
 </head>
 
-<body>
-	<div id="header">
-	</div>
-	<div>
+<body style="height:700px">
+
+<div style="padding:10px; position:absolute; top:2%; opacity:.7; background:white; max-width:210px; font-family:monospace; font-size:12px"> <text>Gifs by Len Talan </text></div>
+	<div id="content" style="width: 100%; margin: 0 auto;">
 		<br>
 		<br>
 		<br>
@@ -63,17 +57,29 @@ $(function(){
 		<br>
 		<br>
 		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<h1 id="len_titles"style=" font-family: Corben, monospace; color:#ff00ff;font-size:80px"> 
+		<h1 id="len_titles"style="font-family: Corben, monospace; color:#ff00ff;font-size:80px;"> 
 		</h1>
 	<div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 </body>
 
 </html>

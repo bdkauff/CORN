@@ -2,7 +2,6 @@
 <html>
 <head>
 <title>Sandy Rothberg</title>
-<link rel="stylesheet" type="text/css" href="style.css">
 <link href='http://fonts.googleapis.com/css?family=Corben:700' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
@@ -27,50 +26,54 @@
 }
 
 </style>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-
 <script>
 
-var x = 1;
-function Slideshow(){
-    document.getElementById("img").src="./sandy/"+x+".jpg";
-    x++;
-    if (x > 3)
-        x = 1;
-}
+	var imgs = {"1" : "https://s3.amazonaws.com/smog-corn/Sandy_images/_MG_8050.jpg",
+				"2" : "https://s3.amazonaws.com/smog-corn/Sandy_images/_MG_8072-Edit.jpg",
+				"3":"https://s3.amazonaws.com/smog-corn/Sandy_images/_MG_8105.jpg",
+				"4" : "https://s3.amazonaws.com/smog-corn/Sandy_images/DSCF1329.jpg",
+				"5" : "https://s3.amazonaws.com/smog-corn/Sandy_images/DSCF1332.jpg",
+				"6" : "https://s3.amazonaws.com/smog-corn/Sandy_images/DSCF1658.jpg",
+				"7" : "https://s3.amazonaws.com/smog-corn/Sandy_images/DSCF1660.jpg",
+				"8" : "https://s3.amazonaws.com/smog-corn/Sandy_images/DSCF1679.jpg",
+				"9" : "https://s3.amazonaws.com/smog-corn/Sandy_images/DSCF1684.jpg",
+				"10":"https://s3.amazonaws.com/smog-corn/Sandy_images/DSCF1686.jpg"
+				};
+	var ctr = 0;
 
-document.getElementById("picture").addEventListener ("click", Slideshow, false);
+    $(document).ready( function () {
+    	nextImg();
+    });
+    
+    function nextImg()
+    {
+    	++ctr;
+    	console.log(ctr);
+    	if( ctr <= 4 )
+    	{
+    		$("#slideshow").append( '<img src=' + imgs[Object.keys(imgs)[ctr]] + '>');
+    		$('<img src=' + imgs[Object.keys(imgs)[ctr]] + '>').remove();
+    		$("#sandy_titles").text(Object.keys(imgs)[ctr]);
+    		if( ctr == 4)
+    			ctr = -1;
+    	}
+
+    }
+    $(document).click(function () {
+    	nextImg();
+    })
 
 </script>
 
 </head>
 <body>
-<!-- 	<center>
-		<div>
-		<b><img src = "steve_lance1.jpg"/>
-		<h1 style = "font-family:Corben">Cornfield with Saints </h1>
-		<h3>Steven Lance</h3>
-		<h4>+++</h4>
-	</b>
-	</center> -->
 
 <div style="font-family:Corben; font-size:18px; width:10px"> <b>Photographs </div></b><br> <div style="font-family:monospace; font-size:14px"> by Sandy Rothberg</a>
 <div class = "two-col" style = "font-family:monospace; font-size:14px">These pictures were made in, and on the journey to Estelline, South Dakota a framing community in the Southeast portion of that state.<br><br>
 It is striking, when driving cross country, just how much corn is grown in this country.  Days spent passing corn fields from Virginia to South Dakota.  The land growing ever flatter and the fields larger but the crop remains the same.  Literally, thousands of miles of corn.
 	</div></div>
 <center>
-<div id = "slideshow">
-	   	<img src =  "./sandy/1.jpg"/>
-	   	<img src =  "./sandy/2.jpg"/>
-	   	<img src =  "./sandy/3.jpg"/>
-	   	<img src =  "./sandy/4.jpg"/>
-	   	<img src =  "./sandy/5.jpg"/>
-	   	<img src =  "./sandy/6.jpg"/>
-	   	<img src =  "./sandy/7.jpg"/>
-	   	<img src =  "./sandy/8.jpg"/>
-	   	<img src =  "./sandy/9.jpg"/>
-	   	<img src =  "./sandy/10.jpg"/>
-</div>
+<div id = "slideshow"></div>
 </center>
 
 
