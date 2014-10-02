@@ -41,7 +41,7 @@
 	<center>
 		<div style= "font-size: 200px">CORN</div>
 	</center>
-<a href ="http://benkauffman.com" target= "_blank" id = "articleUrl">
+<a href ="../intro.html" target= "_blank" id = "articleUrl">
 <div id="ThreeJS" style = "position:absolute; left:0px; top:0px; background-color#ff00ff;">
 </div>
 </a>
@@ -131,18 +131,12 @@ function addModelToScene( geometry, materials )
 	
 }
 
-var article = "http://sarahrothberg.com";
+var article = "./intro.html";
 
 function changeLink() {
     var link = document.getElementById("articleUrl");
-
-    window.open(
-      link.href
-    );
-
   
     link.setAttribute('href', article);
-
     return false;
     console.log("changelink")
 }
@@ -156,68 +150,68 @@ material.needsUpdate = true;
 	if(clicked==1)
 	{	
 		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTexture2.png');
-		article = "http://sarahrothberg.com";
+		article = "http://riosriosrios.com/CornWeb.html";
 		changeLink();
 	}
 
 	if(clicked==2)
 	{	
 		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureRedTL.png');
-		article = "http://example.com";
+		article = "../len_talan.html";
 		changeLink();
 	}
 
 	if(clicked==3)
 	{	
 		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureAquaBR.png');
-		article = "http://example.com";
+		article = "../mary_fe.html";
 		changeLink();
 	}
 
 	if(clicked==4)
 	{	
 		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureAquaBR.png');
-		article = "http://example.com";
-		changeLink();
-	}
-
-	if(clicked==4)
-	{	
-		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureTransTL.png');
-		article = "http://example.com";
+		article = "../kelsa_trom.html";
 		changeLink();
 	}
 
 	if(clicked==5)
 	{	
-		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureTrans.png');
-		article = "http://example.com";
+		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureTransTL.png');
+		article = "http://www.melissafclarke.com/cornHole/";
 		changeLink();
 	}
 
 	if(clicked==6)
 	{	
+		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureTrans.png');
+		article = "http://theeatingmachine.com/dextrose";
+		changeLink();
+	}
+
+	if(clicked==7)
+	{	
 		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureAerial.png');
-		article = "http://example.com";
+		article = "../stefani_bardin/stefani_bardin.html";
 		changeLink();
 	}
 
 
-	if(clicked==16)
+	if(clicked==8)
 	{	
 		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTexture3toLast.png');
-		article = "http://example.com";
+		article = "http://stork-corn.herokuapp.com/";
 		changeLink();
 	}
 
-	if(clicked==17)
+	if(clicked==9)
 	{	
 		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTexture2toLast.png');
-		article = "http://example.com";
+		article = "../miram_simun.html";
 		changeLink();
 	}
 
-	if(clicked==18)
+	if(clicked==10)
 	{	
 		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureLast.png');
 		article = "http://corn.com";
