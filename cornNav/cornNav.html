@@ -14,6 +14,10 @@
 	overflow: hidden;
 		}
 	</style>
+
+	<link rel="icon" href=".../favicon.ico" type="image/x-icon">
+
+
 </head>
 <body>
 
@@ -25,17 +29,27 @@
 <script src="js/THREEx.FullScreen.js"></script>
 <script src="js/THREEx.WindowResize.js"></script>
 
+
+
+
 <!-- jQuery code to display an information button and box when clicked. -->
 <script src="js/jquery-1.9.1.js"></script>
 <script src="js/jquery-ui.js"></script>
 <!-- <link rel=stylesheet href="css/jquery-ui.css" />
 <link rel=stylesheet href="css/info.css"/> -->
+
 <script src="js/info.js"></script>
 
 
-<div id="ThreeJS" style="position: absolute; left:0px; top:0px; background-color:#ff00ff"></div>
-<script>
+<a href = "http://benkauffman.com" target=_blank id = "articleUrl">
+<div id="ThreeJS" style = "position:absolute; left:0px; top:0px; background-color#ff00ff;">
+	<center>
+		<img src = "./title/corn3dtext.gif">
+	</center>
+</div>
 
+
+<script>
 // MAIN
 
 // standard global variables
@@ -113,7 +127,26 @@ function addModelToScene( geometry, materials )
 	corn.scale.set(10,10,10);
 	scene.add( corn );
 	animate();
+	
 }
+
+var article = "http://sarahrothberg.com";
+
+function changeLink() {
+    var link = document.getElementById("articleUrl");
+
+    window.open(
+      link.href,
+      '_blank'
+    );
+
+  
+    link.setAttribute('href', article);
+
+    return false;
+    console.log("changelink")
+}
+
 
 function onDocumentMouseDown( event ) {
 clicked++; 
@@ -123,16 +156,72 @@ material.needsUpdate = true;
 	if(clicked==1)
 	{	
 		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTexture2.png');
+		article = "http://sarahrothberg.com";
+		changeLink();
 	}
 
 	if(clicked==2)
 	{	
-		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTexture.png');
+		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureRedTL.png');
+		article = "http://example.com";
+		changeLink();
 	}
 
 	if(clicked==3)
 	{	
-		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTexture2.png');
+		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureAquaBR.png');
+		article = "http://example.com";
+		changeLink();
+	}
+
+	if(clicked==4)
+	{	
+		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureAquaBR.png');
+		article = "http://example.com";
+		changeLink();
+	}
+
+	if(clicked==4)
+	{	
+		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureTransTL.png');
+		article = "http://example.com";
+		changeLink();
+	}
+
+	if(clicked==5)
+	{	
+		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureTrans.png');
+		article = "http://example.com";
+		changeLink();
+	}
+
+	if(clicked==6)
+	{	
+		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureAerial.png');
+		article = "http://example.com";
+		changeLink();
+	}
+
+
+	if(clicked==16)
+	{	
+		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTexture3toLast.png');
+		article = "http://example.com";
+		changeLink();
+	}
+
+	if(clicked==17)
+	{	
+		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTexture2toLast.png');
+		article = "http://example.com";
+		changeLink();
+	}
+
+	if(clicked==18)
+	{	
+		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureLast.png');
+		article = "http://corn.com";
+		changeLink();
 	}
 
 
