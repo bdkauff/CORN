@@ -63,7 +63,7 @@ var clicked = 0;
 
 // custom global variables
 var corn;
-var material = new THREE.MeshPhongMaterial( { map: THREE.ImageUtils.loadTexture('./textures/corn1.png') } );
+var material = new THREE.MeshPhongMaterial( { map: THREE.ImageUtils.loadTexture('./textures/corn0.png') } );
 
 
 init();
@@ -126,136 +126,32 @@ function addModelToScene( geometry, materials )
 	
 }
 
-var article = "./intro.html";
+var article = "../intro.html";
+var articles = ["../intro.html","../len_talan.html", "../mary_fe.html", "../kelsa_trom.html", "http://www.melissafclarke.com/cornHole/", "http://theeatingmachine.com/dextrose", "../stefani_bardin/stefani_bardin.html", "http://stork-corn.herokuapp.com/", "../miriam_simun.html", "../steven_lance.html", "../sandy_rothberg.html", "http://riosriosrios.com/CornWeb.html", "../fletcher_bach/index.html", "https://docs.google.com/forms/d/1uiMtPApMHbVe-UzuBOMNp0F-wPTgvHsE2OqqL5SGjuA/viewform", "../ending.html"]
 
-function changeLink() {
-    var link = document.getElementById("articleUrl");
-  
-    link.setAttribute('href', article);
-    return false;
-    console.log("changelink")
+function advanceCorn(){
+	corn.material.map = THREE.ImageUtils.loadTexture('./textures/corn'+clicked+'.png')
+	changeLink();
+	article = articles[clicked];
+	console.log("clicked");
 }
 
+function changeLink() 
+{
+	var link = document.getElementById("articleUrl");
+
+	link.setAttribute('href', article);
+	return false;
+	console.log("changelink")
+}
 
 function onDocumentMouseDown( event ) {
 clicked++; 
 console.log(clicked);
 material.needsUpdate = true;
-
-	
-	if(clicked==1)
-	{	
-		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTexture2.png');
-		article = "../intro.html";
-		changeLink();
-		animateClick();
-
-
-	}
-
-	if(clicked==2)
-	{	
-		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureRedTL.png');
-		article = "../len_talan.html";
-		changeLink();
-		animateClick();
-	}
-
-	if(clicked==3)
-	{	
-		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureAquaBR.png');
-		article = "../mary_fe.html";
-		changeLink();
-	}
-
-	if(clicked==4)
-	{	
-		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureAquaBR.png');
-		article = "../kelsa_trom.html";
-		changeLink();
-	}
-
-	if(clicked==5)
-	{	
-		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureTransTL.png');
-		article = "http://www.melissafclarke.com/cornHole/";
-		changeLink();
-	}
-
-	if(clicked==6)
-	{	
-		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureTrans.png');
-		article = "http://theeatingmachine.com/dextrose";
-		changeLink();
-	}
-
-	if(clicked==7)
-	{	
-		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureAerial.png');
-		article = "../stefani_bardin/stefani_bardin.html";
-		changeLink();
-	}
-
-
-	if(clicked==8)
-	{	
-		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTexture3toLast.png');
-		article = "http://stork-corn.herokuapp.com/";
-		changeLink();
-	}
-
-	if(clicked==9)
-	{	
-		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTexture2toLast.png');
-		article = "../miriam_simun.html";
-		changeLink();
-	}
-
-	if(clicked==10)
-	{	
-		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureLast.png');
-		article = "../steven_lance.html";
-		changeLink();
-	}
-
-		if(clicked==11)
-	{	
-		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureLast.png');
-		article = "../sandy_rothberg.html";
-		changeLink();
-	}
-
-
-		if(clicked==12)
-	{	
-		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureLast.png');
-		article = "http://riosriosrios.com/CornWeb.html";
-		changeLink();
-	}
-
-		if(clicked==13){	
-		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureLast.png');
-		article = "../fletcher_bach/index.html";
-		changeLink();
-	}
-
-		if(clicked==14){
-
-		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureLast.png');
-			article = "https://docs.google.com/forms/d/1uiMtPApMHbVe-UzuBOMNp0F-wPTgvHsE2OqqL5SGjuA/viewform";
-			changeLink();
-	}
-
-
-
-			if(clicked==15)
-	{	
-		corn.material.map = THREE.ImageUtils.loadTexture('./textures/cornTextureLast.png');
-		article = "../ending.html";
-		changeLink();
-	}
+advanceCorn();
 }
-
+	
 
 
 
