@@ -130,11 +130,28 @@ var article = "../intro.html";
 var articles = ["../intro.html","../len_talan.html", "../mary_fe.html", "../kelsa_trom.html", "http://www.melissafclarke.com/cornHole/", "http://theeatingmachine.com/dextrose", "../stefani_bardin/stefani_bardin.html", "http://stork-corn.herokuapp.com/", "../miriam_simun.html", "../steven_lance.html", "../sandy_rothberg.html", "http://riosriosrios.com/CornWeb.html", "../fletcher_bach/index.html", "https://docs.google.com/forms/d/1uiMtPApMHbVe-UzuBOMNp0F-wPTgvHsE2OqqL5SGjuA/viewform", "../ending.html"]
 
 function advanceCorn(){
+	if (clicked<=articles.length)
+	{
 	corn.material.map = THREE.ImageUtils.loadTexture('./textures/corn'+clicked+'.png')
 	changeLink();
 	article = articles[clicked];
-	console.log("clicked");
+	animateClick();
+	}
+
+	else{
+
+	var link = document.getElementById("articleUrl");
+	link.setAttribute('target', "_self");
+	link.remove();
+	return false;
+
+
+
+	}
+
 }
+
+
 
 function changeLink() 
 {
@@ -142,25 +159,23 @@ function changeLink()
 
 	link.setAttribute('href', article);
 	return false;
-	console.log("changelink")
+
 }
 
 function onDocumentMouseDown( event ) {
-clicked++; 
+clicked++;
 console.log(clicked);
 material.needsUpdate = true;
 advanceCorn();
 }
 	
 
-
-
-
+var cornRotationDir = 0.005;
 
 function animate() 
 {
     requestAnimationFrame( animate );
-	corn.rotation.x += 0.005;
+	corn.rotation.x += cornRotationDir;
 	render();		
 	update();
 
@@ -168,13 +183,19 @@ function animate()
 
 function animateClick() 
 {
-	var PIseconds	= Date.now() * Math.PI;
-		scene.traverse(function(object3d, idx){
-		if( object3d instanceof THREE.DirectionalLight === false )	return
-		var ang	= 0.002 * PIseconds * (idx % 2 ? 1 : -1);
-		object3d.position.set(Math.cos(ang), Math.sin(ang), Math.cos(ang*2)).normalize();
-	})
+	// var PIseconds	= Date.now() * Math.PI;
+	// 	scene.traverse(function(object3d, idx){
+	// 	if( object3d instanceof THREE.DirectionalLight === false )	return
+	// 	var ang	= 0.002 * PIseconds * (idx % 2 ? 1 : -1);
+	// 	object3d.position.set(Math.cos(ang), Math.sin(ang), Math.cos(ang*2)).normalize();
+	// })
+	// speed up
+	// cornRotationDir += 0.005;
+	//get faster
+	cornRotationDir = -cornRotationDir;
 
+	console.log("switched");
+	console.log(cornRotationDir);
 }
 
 function update()
