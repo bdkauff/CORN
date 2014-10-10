@@ -189,12 +189,12 @@ function animate()
 
 function animateClick() 
 {
-	var PIseconds	= Date.now() * Math.PI;
-		scene.traverse(function(object3d, idx){
-		if( object3d instanceof THREE.DirectionalLight === false )	return
-		var ang	= 0.002 * PIseconds * (idx % 2 ? 1 : -1);
-		object3d.position.set(Math.cos(ang), Math.sin(ang), Math.cos(ang*2)).normalize();
-	})
+	// var PIseconds	= Date.now() * Math.PI;
+	// 	scene.traverse(function(object3d, idx){
+	// 	if( object3d instanceof THREE.DirectionalLight === false )	return
+	// 	var ang	= 0.002 * PIseconds * (idx % 2 ? 1 : -1);
+	// 	object3d.position.set(Math.cos(ang), Math.sin(ang), Math.cos(ang*2)).normalize();
+	// })
 	// speed up
 	// cornRotationDir += 0.005;
 	//get faster
