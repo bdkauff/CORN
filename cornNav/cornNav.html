@@ -72,6 +72,15 @@ init();
 // FUNCTIONS 		
 function init() 
 {
+	if (Detector.webgl ){
+		renderer = new THREE.WebGLRenderer( {antialias:true} );
+	}
+	else{
+		alert("Aw, shucks! Looks like your device doesn't support WebGL and can't run the CORN nav page! CORN is optimized for computers running modern browsers. You'll be redirected to an alternate table of contents.");
+		window.location.href = "./alternateNav.html";
+		return; 
+	}	
+
 	document.addEventListener( 'mousedown', onDocumentMouseDown, false );
 
 	// SCENE
@@ -84,10 +93,7 @@ function init()
 	camera.position.set(0,1500,400);
 	camera.lookAt(scene.position);	
 	// RENDERER
-	if ( Detector.webgl )
-		renderer = new THREE.WebGLRenderer( {antialias:true} );
-	else 
-		renderer = new THREE.CanvasRenderer(); 
+	
 	renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 	container = document.getElementById( 'ThreeJS' );
 	container.appendChild( renderer.domElement );
@@ -183,12 +189,12 @@ function animate()
 
 function animateClick() 
 {
-	var PIseconds	= Date.now() * Math.PI;
-		scene.traverse(function(object3d, idx){
-		if( object3d instanceof THREE.DirectionalLight === false )	return
-		var ang	= 0.002 * PIseconds * (idx % 2 ? 1 : -1);
-		object3d.position.set(Math.cos(ang), Math.sin(ang), Math.cos(ang*2)).normalize();
-	})
+	// var PIseconds	= Date.now() * Math.PI;
+	// 	scene.traverse(function(object3d, idx){
+	// 	if( object3d instanceof THREE.DirectionalLight === false )	return
+	// 	var ang	= 0.002 * PIseconds * (idx % 2 ? 1 : -1);
+	// 	object3d.position.set(Math.cos(ang), Math.sin(ang), Math.cos(ang*2)).normalize();
+	// })
 	// speed up
 	// cornRotationDir += 0.005;
 	//get faster
