@@ -40,6 +40,7 @@
 <script src="js/info.js"></script>
 	<center>
 		<div style= "font-size: 200px">CORN</div>
+		<div id = "loading" style = "font-size: 18px; font-family:monospace;">loading...</div>
 	</center>
 <a href ="../intro.html" target= "_blank" id = "articleUrl">
 <div id="ThreeJS" style = "position:absolute; left:0px; top:0px; background-color#ff00ff;">
@@ -104,7 +105,7 @@ function init()
 	controls = new THREE.OrbitControls( camera, renderer.domElement );
 
 	var jsonLoader = new THREE.JSONLoader();
-	jsonLoader.load( "models/corn16s.js", addModelToScene );
+	jsonLoader.load( "models/corn_lower_poly.js", addModelToScene );
 	// addModelToScene function is called back after model has loaded
 
 	// scene.add(ambientLight);
@@ -115,6 +116,7 @@ function init()
 
 function addModelToScene( geometry, materials ) 
 {	
+	document.getElementById("loading").remove();
 // 	var dummy = new THREE.Object3D();
 //  corn = new THREE.Mesh( geometry, material );
 // corn.position.x = 100;
@@ -126,7 +128,7 @@ function addModelToScene( geometry, materials )
 	scene.add(light);
 
 	corn = new THREE.Mesh( geometry, material);
-	corn.scale.set(1,1,1);
+	corn.scale.set(10,10,10);
 	scene.add( corn );
 	animate();
 	
