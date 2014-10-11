@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>C-O-R-N.NET</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<style>
+	body 
+		{
+	font-family: 'Corben', monospace;
+	font-weight: bold;
+	background-color: #ff00ff;
+	margin: 0px;
+	overflow: hidden;
+		}
+	</style>
+
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link href='http://fonts.googleapis.com/css?family=Corben:700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<script src="cornNav/js/Three.js"></script>
+<script src="cornNav/js/Detector.js"></script>
+<script src="cornNav/js/Stats.js"></script>
+<script src="cornNav/js/OrbitControls.js"></script>
+<script src="cornNav/js/THREEx.KeyboardState.js"></script>
+<script src="cornNav/js/THREEx.FullScreen.js"></script>
+<script src="cornNav/js/THREEx.WindowResize.js"></script>
+
+
+
+
+<!-- jQuery code to display an information button and box when clicked. -->
+<script src="cornNav/js/jquery-1.9.1.js"></script>
+<script src="cornNav/js/jquery-ui.js"></script>
+<!-- <link rel=stylesheet href="css/jquery-ui.css" />
+<link rel=stylesheet href="css/info.css"/> -->
+
+<script src="cornNav/js/info.js"></script>
+	<center>
+		<div style= "font-size: 200px">CORN</div>
+		<div id = "loading" style = "font-size: 18px; font-family:monospace;">loading...</div>
+	</center>
+<a href ="intro.html" target= "_blank" id = "articleUrl">
+<div id="ThreeJS" style = "position:absolute; left:0px; top:0px; background-color#ff00ff;">
+</div>
+</a>
+
+
+
+<script>
+
+
+// MAIN
+
+// standard global variables
+var container, scene, camera, renderer, controls, stats;
+var keyboard = new THREEx.KeyboardState();
+var clock = new THREE.Clock();
+var clicked = 0; 
+
+
+
+// custom global variables
+var corn;
+var material = new THREE.MeshPhongMaterial( { map: THREE.ImageUtils.loadTexture('cornNav/textures/corn0.png') } );
+
+
+init();
+
+
+// FUNCTIONS 		
+function init() 
+{
+	if (Detector.webgl ){
+		renderer = new THREE.WebGLRenderer( {antialias:true} );
+	}
+	else{
+		alert("Aw, shucks! Looks like your device doesn't support WebGL and can't run the CORN nav page! CORN is optimized for computers running modern browsers. You'll be redirected to an alternate table of contents.");
+		window.location.href = "alternateNav.html";
+		return; 
+	}	
+
+	document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+
+	// SCENE
+	scene = new THREE.Scene();
+	// CAMERA
+	var SCREEN_WIDTH = window.innerWidth, SCREEN_HEIGHT = window.innerHeight;
+	var VIEW_ANGLE = 45, ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT, NEAR = 0.1, FAR = 20000;
+	camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR);
+	scene.add(camera);
+	camera.position.set(0,1500,400);
+	camera.lookAt(scene.position);	
+	// RENDERER
+	
+	renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+	container = document.getElementById( 'ThreeJS' );
+	container.appendChild( renderer.domElement );
+	// EVENTS
+	THREEx.WindowResize(renderer, camera);
+	THREEx.FullScreen.bindKey({ charCode : 'm'.charCodeAt(0) });
+	// CONTROLS
+	controls = new THREE.OrbitControls( camera, renderer.domElement );
+
+	var jsonLoader = new THREE.JSONLoader();
+<<<<<<< HEAD:cornNav/cornNav.html
+	jsonLoader.load( "models/corn_lower_poly.js", addModelToScene );
+=======
+	jsonLoader.load( "cornNav/models/corn16s.js", addModelToScene );
+>>>>>>> 85474bfe9890b28d9389096b73c878e00af97a9b:cornNav.html
+	// addModelToScene function is called back after model has loaded
+
+	// scene.add(ambientLight);
+	
+}
+
+
+
+function addModelToScene( geometry, materials ) 
+{	
+	document.getElementById("loading").remove();
+// 	var dummy = new THREE.Object3D();
+//  corn = new THREE.Mesh( geometry, material );
+// corn.position.x = 100;
+// dummy.addChild( corn );
+
+// scene.addObject( dummy );
+	light = new THREE.DirectionalLight(0xffffff);
+
+	scene.add(light);
+
+	corn = new THREE.Mesh( geometry, material);
+	corn.scale.set(10,10,10);
+	scene.add( corn );
+	animate();
+	
+}
+
+var article = "intro.html";
+var articles = ["intro.html","kelsa_trom.html","stefani_bardin/stefani_bardin.html","http://topcrop.herokuapp.com","http://theeatingmachine.com/dextrose","len_talan.html", "mary_fe.html","allison_chomet.html","http://www.melissafclarke.com/cornHole/","sandy_rothberg.html","http://riosriosrios.com/CornWeb.html","steven_lance.html","http://stork-corn.herokuapp.com/", "miriam_simun.html","fletcher_bach/index.html", "https://docs.google.com/forms/d/1uiMtPApMHbVe-UzuBOMNp0F-wPTgvHsE2OqqL5SGjuA/viewform", "ending.html"]
+
+function advanceCorn(){
+	if (clicked<=articles.length)
+	{
+	corn.material.map = THREE.ImageUtils.loadTexture('cornNav/textures/corn'+clicked+'.png')
+	changeLink();
+	article = articles[clicked];
+	animateClick();
+	}
+
+	else{
+
+	var link = document.getElementById("articleUrl");
+	link.setAttribute('target', "_self");
+	link.remove();
+	return false;
+
+
+
+	}
+
+}
+
+
+
+function changeLink() 
+{
+	var link = document.getElementById("articleUrl");
+
+	link.setAttribute('href', article);
+	return false;
+
+}
+
+function onDocumentMouseDown( event ) {
+clicked++;
+console.log(clicked);
+material.needsUpdate = true;
+advanceCorn();
+}
+	
+
+var cornRotationDir = 0.005;
+
+function animate() 
+{
+    requestAnimationFrame( animate );
+	corn.rotation.x += cornRotationDir;
+	render();		
+	update();
+
+}
+
+function animateClick() 
+{
+	// var PIseconds	= Date.now() * Math.PI;
+	// 	scene.traverse(function(object3d, idx){
+	// 	if( object3d instanceof THREE.DirectionalLight === false )	return
+	// 	var ang	= 0.002 * PIseconds * (idx % 2 ? 1 : -1);
+	// 	object3d.position.set(Math.cos(ang), Math.sin(ang), Math.cos(ang*2)).normalize();
+	// })
+	// speed up
+	// cornRotationDir += 0.005;
+	//get faster
+	cornRotationDir = -cornRotationDir;
+
+	console.log("switched");
+	console.log(cornRotationDir);
+}
+
+function update()
+{
+}
+
+function render() 
+{	
+	
+
+	renderer.render( scene, camera );
+}
+
+
+</script>
+
+<!-- ANALYTICS -->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55387814-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+</body>
+</html>
