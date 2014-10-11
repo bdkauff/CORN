@@ -15,34 +15,34 @@
 		}
 	</style>
 
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="../favicon.ico" type="image/x-icon">
 	<link href='http://fonts.googleapis.com/css?family=Corben:700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
-<script src="cornNav/js/Three.js"></script>
-<script src="cornNav/js/Detector.js"></script>
-<script src="cornNav/js/Stats.js"></script>
-<script src="cornNav/js/OrbitControls.js"></script>
-<script src="cornNav/js/THREEx.KeyboardState.js"></script>
-<script src="cornNav/js/THREEx.FullScreen.js"></script>
-<script src="cornNav/js/THREEx.WindowResize.js"></script>
+<script src="js/Three.js"></script>
+<script src="js/Detector.js"></script>
+<script src="js/Stats.js"></script>
+<script src="js/OrbitControls.js"></script>
+<script src="js/THREEx.KeyboardState.js"></script>
+<script src="js/THREEx.FullScreen.js"></script>
+<script src="js/THREEx.WindowResize.js"></script>
 
 
 
 
 <!-- jQuery code to display an information button and box when clicked. -->
-<script src="cornNav/js/jquery-1.9.1.js"></script>
-<script src="cornNav/js/jquery-ui.js"></script>
+<script src="js/jquery-1.9.1.js"></script>
+<script src="js/jquery-ui.js"></script>
 <!-- <link rel=stylesheet href="css/jquery-ui.css" />
 <link rel=stylesheet href="css/info.css"/> -->
 
-<script src="cornNav/js/info.js"></script>
+<script src="js/info.js"></script>
 	<center>
 		<div style= "font-size: 200px">CORN</div>
 		<div id = "loading" style = "font-size: 18px; font-family:monospace;">loading...</div>
 	</center>
-<a href ="intro.html" target= "_blank" id = "articleUrl">
+<a href ="../intro.html" target= "_blank" id = "articleUrl">
 <div id="ThreeJS" style = "position:absolute; left:0px; top:0px; background-color#ff00ff;">
 </div>
 </a>
@@ -64,7 +64,7 @@ var clicked = 0;
 
 // custom global variables
 var corn;
-var material = new THREE.MeshPhongMaterial( { map: THREE.ImageUtils.loadTexture('cornNav/textures/corn0.png') } );
+var material = new THREE.MeshPhongMaterial( { map: THREE.ImageUtils.loadTexture('./textures/corn0.png') } );
 
 
 init();
@@ -78,7 +78,7 @@ function init()
 	}
 	else{
 		alert("Aw, shucks! Looks like your device doesn't support WebGL and can't run the CORN nav page! CORN is optimized for computers running modern browsers. You'll be redirected to an alternate table of contents.");
-		window.location.href = "alternateNav.html";
+		window.location.href = "./alternateNav.html";
 		return; 
 	}	
 
@@ -105,11 +105,7 @@ function init()
 	controls = new THREE.OrbitControls( camera, renderer.domElement );
 
 	var jsonLoader = new THREE.JSONLoader();
-<<<<<<< HEAD:cornNav/cornNav.html
 	jsonLoader.load( "models/corn_lower_poly.js", addModelToScene );
-=======
-	jsonLoader.load( "cornNav/models/corn16s.js", addModelToScene );
->>>>>>> 85474bfe9890b28d9389096b73c878e00af97a9b:cornNav.html
 	// addModelToScene function is called back after model has loaded
 
 	// scene.add(ambientLight);
@@ -138,13 +134,13 @@ function addModelToScene( geometry, materials )
 	
 }
 
-var article = "intro.html";
-var articles = ["intro.html","kelsa_trom.html","stefani_bardin/stefani_bardin.html","http://topcrop.herokuapp.com","http://theeatingmachine.com/dextrose","len_talan.html", "mary_fe.html","allison_chomet.html","http://www.melissafclarke.com/cornHole/","sandy_rothberg.html","http://riosriosrios.com/CornWeb.html","steven_lance.html","http://stork-corn.herokuapp.com/", "miriam_simun.html","fletcher_bach/index.html", "https://docs.google.com/forms/d/1uiMtPApMHbVe-UzuBOMNp0F-wPTgvHsE2OqqL5SGjuA/viewform", "ending.html"]
+var article = "../intro.html";
+var articles = ["../intro.html","../kelsa_trom.html","../stefani_bardin/stefani_bardin.html","http://topcrop.herokuapp.com","http://theeatingmachine.com/dextrose","../len_talan.html", "../mary_fe.html","../allison_chomet.html","http://www.melissafclarke.com/cornHole/","../sandy_rothberg.html","http://riosriosrios.com/CornWeb.html","../steven_lance.html","http://stork-corn.herokuapp.com/", "../miriam_simun.html","../fletcher_bach/index.html", "https://docs.google.com/forms/d/1uiMtPApMHbVe-UzuBOMNp0F-wPTgvHsE2OqqL5SGjuA/viewform", "../ending.html"]
 
 function advanceCorn(){
 	if (clicked<=articles.length)
 	{
-	corn.material.map = THREE.ImageUtils.loadTexture('cornNav/textures/corn'+clicked+'.png')
+	corn.material.map = THREE.ImageUtils.loadTexture('./textures/corn'+clicked+'.png')
 	changeLink();
 	article = articles[clicked];
 	animateClick();
